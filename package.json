@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "**TaskCore** is an open-source, community-driven task management application designed to help students stay organized, productive, and on top of their academic workload.",
   "main": "tailwind.config.js",
-   "type": "module",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -26,9 +26,13 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^5.1.1",
+    "autoprefixer": "^10.4.22",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.17",
     "typescript": "^5.9.3",
     "vite": "^7.2.4"
+  },
+  "engines": {
+    "node": "18.x"
   }
-
-
 }
