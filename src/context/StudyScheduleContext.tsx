@@ -154,7 +154,7 @@ export const StudyScheduleProvider: React.FC<{ children: React.ReactNode }> = ({
     });
 
     // Get all available time slots (free periods minus classes and sleep)
-    const availableSlots: Array<{ day: number; start: number; end: number }> = [];
+    let availableSlots: Array<{ day: number; start: number; end: number }> = [];
 
     // Start with free periods
     freePeriods.forEach((period) => {
