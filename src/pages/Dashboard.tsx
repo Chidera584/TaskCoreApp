@@ -9,6 +9,7 @@ import CreateTaskModal from '../components/tasks/CreateTaskModal';
 import { TasksIcon, CheckCircleIcon, ClockIcon, AlertIcon, PlusIcon } from '../components/common/Icons';
 import { useTasks } from '../hooks/useTasks';
 import { useNotifications } from '../hooks/useNotifications';
+import { useSmartReminders } from '../hooks/useSmartReminders';
 
 const Dashboard: React.FC = () => {
   const navigate = useNavigate();
@@ -16,6 +17,9 @@ const Dashboard: React.FC = () => {
   const { addNotification } = useNotifications();
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
   const [currentTime, setCurrentTime] = useState(new Date());
+
+  // Enable smart reminders
+  useSmartReminders();
 
   // Update time every minute
   useEffect(() => {
@@ -104,13 +108,13 @@ const Dashboard: React.FC = () => {
         {/* Welcome Section with Date/Time and Create Button */}
         <div className="mb-6 lg:mb-8 flex items-start justify-between">
           <div>
-            <h1 className="text-2xl lg:text-3xl font-bold text-primary-navy mb-1 lg:mb-2">
+            <h1 className="text-2xl lg:text-3xl font-bold text-primary-navy dark:text-white mb-1 lg:mb-2">
               Welcome back, Student!
             </h1>
-            <p className="text-sm lg:text-base text-neutral-dark mb-1">
+            <p className="text-sm lg:text-base text-neutral-dark dark:text-neutral-gray mb-1">
               {currentTime.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}
             </p>
-            <p className="text-xs lg:text-sm text-neutral-dark">
+            <p className="text-xs lg:text-sm text-neutral-dark dark:text-neutral-gray">
               {currentTime.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}
             </p>
           </div>
@@ -146,12 +150,12 @@ const Dashboard: React.FC = () => {
             onClick={() => navigate('/tasks')}
           >
             <div className="flex flex-col items-center lg:items-start lg:flex-row lg:justify-between mb-2 lg:mb-4">
-              <div className="p-2 lg:p-3 bg-primary-navy/10 rounded-lg mb-2 lg:mb-0">
-                <TasksIcon size={20} className="text-primary-navy lg:w-6 lg:h-6" />
+              <div className="p-2 lg:p-3 bg-primary-navy/10 dark:bg-primary-navy/40 rounded-lg mb-2 lg:mb-0">
+                <TasksIcon size={20} className="text-primary-navy dark:text-white lg:w-6 lg:h-6" />
               </div>
-              <span className="text-2xl lg:text-3xl font-bold text-primary-navy">{stats.total}</span>
+              <span className="text-2xl lg:text-3xl font-bold text-primary-navy dark:text-white">{stats.total}</span>
             </div>
-            <h3 className="text-xs lg:text-sm font-medium text-neutral-dark text-center lg:text-left">Total Tasks</h3>
+            <h3 className="text-xs lg:text-sm font-medium text-neutral-dark dark:text-neutral-gray text-center lg:text-left">Total Tasks</h3>
           </Card>
 
           {/* Completed */}
@@ -160,13 +164,13 @@ const Dashboard: React.FC = () => {
             onClick={() => navigate('/tasks')}
           >
             <div className="flex flex-col items-center lg:items-start lg:flex-row lg:justify-between mb-2 lg:mb-4">
-              <div className="p-2 lg:p-3 bg-status-success/10 rounded-lg mb-2 lg:mb-0">
+              <div className="p-2 lg:p-3 bg-status-success/10 dark:bg-status-success/20 rounded-lg mb-2 lg:mb-0">
                 <CheckCircleIcon size={20} className="text-status-success lg:w-6 lg:h-6" />
               </div>
               <span className="text-2xl lg:text-3xl font-bold text-status-success">{stats.completed}</span>
             </div>
-            <h3 className="text-xs lg:text-sm font-medium text-neutral-dark text-center lg:text-left">Completed</h3>
-            <div className="hidden lg:block mt-2 w-full bg-neutral-gray rounded-full h-2">
+            <h3 className="text-xs lg:text-sm font-medium text-neutral-dark dark:text-neutral-gray text-center lg:text-left">Completed</h3>
+            <div className="hidden lg:block mt-2 w-full bg-neutral-gray dark:bg-neutral-dark rounded-full h-2">
               <div 
                 className="bg-status-success h-2 rounded-full transition-all"
                 style={{ width: `${completionPercentage}%` }}
@@ -180,12 +184,12 @@ const Dashboard: React.FC = () => {
             onClick={() => navigate('/tasks')}
           >
             <div className="flex flex-col items-center lg:items-start lg:flex-row lg:justify-between mb-2 lg:mb-4">
-              <div className="p-2 lg:p-3 bg-status-warning/10 rounded-lg mb-2 lg:mb-0">
+              <div className="p-2 lg:p-3 bg-status-warning/10 dark:bg-status-warning/20 rounded-lg mb-2 lg:mb-0">
                 <ClockIcon size={20} className="text-status-warning lg:w-6 lg:h-6" />
               </div>
               <span className="text-2xl lg:text-3xl font-bold text-status-warning">{stats.pending}</span>
             </div>
-            <h3 className="text-xs lg:text-sm font-medium text-neutral-dark text-center lg:text-left">Pending</h3>
+            <h3 className="text-xs lg:text-sm font-medium text-neutral-dark dark:text-neutral-gray text-center lg:text-left">Pending</h3>
           </Card>
 
           {/* Overdue */}
@@ -194,22 +198,22 @@ const Dashboard: React.FC = () => {
             onClick={() => navigate('/tasks')}
           >
             <div className="flex flex-col items-center lg:items-start lg:flex-row lg:justify-between mb-2 lg:mb-4">
-              <div className="p-2 lg:p-3 bg-status-danger/10 rounded-lg mb-2 lg:mb-0">
+              <div className="p-2 lg:p-3 bg-status-danger/10 dark:bg-status-danger/20 rounded-lg mb-2 lg:mb-0">
                 <AlertIcon size={20} className="text-status-danger lg:w-6 lg:h-6" />
               </div>
               <span className="text-2xl lg:text-3xl font-bold text-status-danger">{stats.overdue}</span>
             </div>
-            <h3 className="text-xs lg:text-sm font-medium text-neutral-dark text-center lg:text-left">Overdue</h3>
+            <h3 className="text-xs lg:text-sm font-medium text-neutral-dark dark:text-neutral-gray text-center lg:text-left">Overdue</h3>
           </Card>
         </div>
 
         {/* Two Column Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Upcoming Tasks - Takes 2 columns */}
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-2 space-y-6">
             <Card className="p-6">
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-xl font-bold text-primary-navy">Upcoming Tasks</h2>
+                <h2 className="text-xl font-bold text-primary-navy dark:text-white">Upcoming Tasks</h2>
                 <Button 
                   variant="outline" 
                   size="sm"
@@ -220,12 +224,12 @@ const Dashboard: React.FC = () => {
               </div>
               <div className="space-y-4">
                 {upcomingTasks.length === 0 ? (
-                  <p className="text-neutral-dark text-center py-8">No upcoming tasks</p>
+                  <p className="text-neutral-dark dark:text-neutral-gray text-center py-8">No upcoming tasks</p>
                 ) : (
                   upcomingTasks.map((task) => (
                     <div
                       key={task.id}
-                      className="flex items-center justify-between p-4 bg-neutral-gray/30 rounded-lg hover:bg-neutral-gray/50 transition-colors cursor-pointer"
+                      className="flex items-center justify-between p-4 bg-neutral-gray/30 dark:bg-neutral-900/60 rounded-lg hover:bg-neutral-gray/50 dark:hover:bg-neutral-900 transition-colors cursor-pointer"
                       onClick={() => navigate('/tasks')}
                     >
                       <div className="flex items-center space-x-4 flex-1">
@@ -239,10 +243,10 @@ const Dashboard: React.FC = () => {
                           className="h-5 w-5 rounded border-neutral-dark"
                         />
                         <div className="flex-1">
-                          <h3 className={`font-medium ${task.completed ? 'line-through text-neutral-dark' : 'text-neutral-darker'}`}>
+                          <h3 className={`font-medium ${task.completed ? 'line-through text-neutral-dark' : 'text-neutral-darker dark:text-white'}`}>
                             {task.title}
                           </h3>
-                          <p className="text-sm text-neutral-dark">
+                          <p className="text-sm text-neutral-dark dark:text-neutral-gray">
                             Due: {formatDueDate(task.dueDate)}
                           </p>
                         </div>
@@ -258,7 +262,7 @@ const Dashboard: React.FC = () => {
           {/* Quick Actions - Takes 1 column */}
           <div>
             <Card className="p-6">
-              <h2 className="text-xl font-bold text-primary-navy mb-6">Quick Actions</h2>
+              <h2 className="text-xl font-bold text-primary-navy dark:text-white mb-6">Quick Actions</h2>
               <div className="space-y-4">
                 <Button 
                   variant="primary" 

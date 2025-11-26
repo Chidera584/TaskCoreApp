@@ -20,13 +20,13 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
 
       {/* Modal */}
       <div className="flex min-h-full items-center justify-center p-4">
-        <div className="relative bg-white rounded-card shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+        <div className="relative bg-white dark:bg-neutral-900 rounded-card shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
           {/* Header */}
-          <div className="flex items-center justify-between p-6 border-b border-neutral-gray">
-            <h2 className="text-2xl font-bold text-primary-navy">{title}</h2>
+          <div className="flex items-center justify-between p-6 border-b border-neutral-gray dark:border-neutral-dark">
+            <h2 className="text-2xl font-bold text-primary-navy dark:text-white">{title}</h2>
             <button
               onClick={onClose}
-              className="text-neutral-dark hover:text-neutral-darker transition-colors"
+              className="text-neutral-dark hover:text-neutral-darker dark:text-neutral-gray dark:hover:text-white transition-colors"
             >
               <svg
                 className="w-6 h-6"

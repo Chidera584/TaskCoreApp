@@ -136,3 +136,23 @@ export const TrashIcon: React.FC<IconProps> = ({ className = '', size = 20 }) =>
   </svg>
 );
 
+export const PomodoroIcon: React.FC<IconProps> = ({ className = '', size = 20 }) => (
+  <svg width={size} height={size} className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+    <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="2" fill="none" />
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6l4 2" />
+  </svg>
+);
+
+export const MoodIcon: React.FC<IconProps> = ({ className = '', size = 20 }) => (
+  <svg width={size} height={size} className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+  </svg>
+);
+
+export const CalendarIcon: React.FC<IconProps> = ({ className = '', size = 20 }) => (
+  <svg width={size} height={size} className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+  </svg>
+);
+

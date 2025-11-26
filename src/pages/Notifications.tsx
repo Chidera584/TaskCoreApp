@@ -2,7 +2,7 @@ import React from 'react';
 import Layout from '../components/layout/Layout';
 import MobilePageHeader from '../components/layout/MobilePageHeader';
 import Card from '../components/common/Card';
-import { CheckCircleIcon, ClockIcon, AlertIcon } from '../common/Icons';
+import { CheckCircleIcon, ClockIcon, AlertIcon } from '../components/common/Icons';
 import { useNotifications } from '../hooks/useNotifications';
 
 const Notifications: React.FC = () => {
@@ -14,6 +14,8 @@ const Notifications: React.FC = () => {
         return <CheckCircleIcon size={24} className="text-status-success" />;
       case 'warning':
         return <AlertIcon size={24} className="text-status-warning" />;
+      case 'reminder':
+        return <ClockIcon size={24} className="text-status-info" />;
       default:
         return <ClockIcon size={24} className="text-status-info" />;
     }
@@ -27,8 +29,8 @@ const Notifications: React.FC = () => {
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-primary-navy mb-2">Notifications</h1>
-            <p className="text-neutral-dark">
+            <h1 className="text-3xl font-bold text-primary-navy dark:text-white mb-2">Notifications</h1>
+            <p className="text-neutral-dark dark:text-neutral-gray">
               {unreadCount > 0 ? `You have ${unreadCount} unread notifications` : 'All caught up!'}
             </p>
           </div>
@@ -46,9 +48,9 @@ const Notifications: React.FC = () => {
         <div className="space-y-4">
           {notifications.length === 0 ? (
             <Card className="p-12 text-center">
-              <CheckCircleIcon size={48} className="mx-auto text-neutral-gray mb-4" />
-              <h3 className="text-xl font-bold text-neutral-darker mb-2">No notifications</h3>
-              <p className="text-neutral-dark">You're all caught up! Check back later for updates.</p>
+              <CheckCircleIcon size={48} className="mx-auto text-neutral-gray dark:text-neutral-dark mb-4" />
+              <h3 className="text-xl font-bold text-neutral-darker dark:text-white mb-2">No notifications</h3>
+              <p className="text-neutral-dark dark:text-neutral-gray">You're all caught up! Check back later for updates.</p>
             </Card>
           ) : (
             notifications.map((notification) => (
@@ -63,15 +65,17 @@ const Notifications: React.FC = () => {
                   <div className="flex-shrink-0">{getIcon(notification.type)}</div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between mb-1">
-                      <h3 className="text-lg font-semibold text-neutral-darker">
+                      <h3 className="text-lg font-semibold text-neutral-darker dark:text-white">
                         {notification.title}
                       </h3>
                       {!notification.read && (
                         <span className="flex-shrink-0 w-2 h-2 bg-accent-sky rounded-full"></span>
                       )}
                     </div>
-                    <p className="text-neutral-dark mb-2">{notification.message}</p>
-                    <p className="text-sm text-neutral-dark">{notification.time}</p>
+                    <p className="text-neutral-dark dark:text-neutral-gray mb-2">{notification.message}</p>
+                    <p className="text-sm text-neutral-dark dark:text-neutral-gray">
+                      {new Date(notification.time).toLocaleString()}
+                    </p>
                   </div>
                 </div>
               </Card>
