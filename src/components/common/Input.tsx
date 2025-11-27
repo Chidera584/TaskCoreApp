@@ -9,7 +9,7 @@ const Input: React.FC<InputProps> = ({ label, error, className = '', ...props })
   return (
     <div className="mb-4">
       {label && (
-        <label className="block text-sm font-medium text-neutral-darker dark:text-neutral-gray mb-2">
+        <label className="block text-sm font-medium text-neutral-darker mb-2">
           {label}
         </label>
       )}

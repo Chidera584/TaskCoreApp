@@ -267,7 +267,9 @@ TaskCore is designed specifically for students with:
 
 ## 🤝 Contributing
 
-We welcome contributions to TaskCore! Whether you're fixing bugs, adding features, or improving documentation, your help is appreciated.
+TaskCore is a **community-oriented open-source project**. We welcome contributions from developers, students, and anyone interested in improving the application!
+
+Whether you're fixing bugs, adding features, or improving documentation, your help is appreciated. This project thrives on community participation.
 
 ### How to Contribute
 
@@ -357,7 +359,13 @@ Thank you for contributing to TaskCore! 🎉
 
 ## 📄 License
 
-This project is licensed under the **MIT License**.
+This project is **open source** and licensed under the **MIT License**.
+
+As an open-source project, TaskCore is:
+- ✅ Free to use for personal and commercial purposes
+- ✅ Open for community contributions
+- ✅ Available for modification and distribution
+- ✅ Community-maintained and community-driven
 
 ### MIT License
 

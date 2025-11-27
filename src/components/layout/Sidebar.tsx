@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { DashboardIcon, TasksIcon, NotificationIcon, SettingsIcon, LogoutIcon, PomodoroIcon, MoodIcon, CalendarIcon } from '../common/Icons';
+import { DashboardIcon, TasksIcon, NotificationIcon, SettingsIcon, LogoutIcon } from '../common/Icons';
 
 const Sidebar: React.FC = () => {
   const location = useLocation();
@@ -8,9 +8,6 @@ const Sidebar: React.FC = () => {
   const navItems = [
     { path: '/dashboard', label: 'Dashboard', icon: DashboardIcon },
     { path: '/tasks', label: 'Tasks', icon: TasksIcon },
-    { path: '/pomodoro', label: 'Pomodoro', icon: PomodoroIcon },
-    { path: '/study-time', label: 'Study Time', icon: CalendarIcon },
-    { path: '/mood', label: 'Mood Tracker', icon: MoodIcon },
     { path: '/notifications', label: 'Notifications', icon: NotificationIcon },
     { path: '/settings', label: 'Settings', icon: SettingsIcon },
   ];
@@ -18,13 +15,13 @@ const Sidebar: React.FC = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <aside className="hidden lg:flex fixed top-0 left-0 z-50 h-full w-64 bg-white dark:bg-neutral-900 border-r border-neutral-gray dark:border-neutral-dark flex-col"
+    <aside className="hidden lg:flex fixed top-0 left-0 z-50 h-full w-64 bg-white border-r border-neutral-gray flex-col"
       >
         {/* Logo */}
-        <div className="flex items-center justify-between p-6 border-b border-neutral-gray dark:border-neutral-dark">
+        <div className="flex items-center justify-between p-6 border-b border-neutral-gray">
           <Link to="/dashboard" className="flex items-center space-x-3">
             <img src="/icon.png" alt="TaskCore" className="h-10 w-10" />
-            <span className="text-xl font-bold text-primary-navy dark:text-white">TaskCore</span>
+            <span className="text-xl font-bold text-primary-navy">TaskCore</span>
           </Link>
         </div>
 
@@ -39,7 +36,7 @@ const Sidebar: React.FC = () => {
                 className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors ${
                   isActive(item.path)
                     ? 'bg-primary-navy text-white'
-                    : 'text-neutral-darker dark:text-neutral-gray hover:bg-neutral-gray dark:hover:bg-neutral-800'
+                    : 'text-neutral-darker hover:bg-neutral-gray'
                 }`}
               >
                 <Icon size={20} />
@@ -50,14 +47,14 @@ const Sidebar: React.FC = () => {
         </nav>
 
         {/* User Section */}
-        <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-neutral-gray dark:border-neutral-dark">
+        <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-neutral-gray">
           <div className="flex items-center space-x-3 px-4 py-3 mb-2">
             <div className="w-10 h-10 bg-accent-sky rounded-full flex items-center justify-center text-white font-bold">
               S
             </div>
             <div className="flex-1">
-              <p className="text-sm font-medium text-neutral-darker dark:text-white">Student</p>
-              <p className="text-xs text-neutral-dark dark:text-neutral-gray">student@email.com</p>
+              <p className="text-sm font-medium text-neutral-darker">Student</p>
+              <p className="text-xs text-neutral-dark">student@email.com</p>
             </div>
           </div>
           <button

@@ -9,11 +9,11 @@
   }
   
   body {
-    @apply bg-white text-neutral-darker font-sans dark:bg-neutral-900 dark:text-neutral-gray;
+    @apply bg-white text-neutral-darker font-sans;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply text-primary-navy font-semibold dark:text-white;
+    @apply text-primary-navy font-semibold;
   }
 }
 
@@ -37,12 +37,12 @@
 
   /* Card Styles */
   .card {
-    @apply bg-white rounded-card shadow-card hover:shadow-card-hover transition-shadow duration-200 dark:bg-neutral-800;
+    @apply bg-white rounded-card shadow-card hover:shadow-card-hover transition-shadow duration-200;
   }
 
   /* Input Styles */
   .input {
-    @apply w-full px-4 py-2 border border-neutral-gray rounded-lg bg-white text-neutral-darker placeholder:text-neutral-dark/70 focus:outline-none focus:ring-2 focus:ring-primary-navy focus:border-transparent dark:bg-neutral-800 dark:text-white dark:placeholder:text-neutral-gray dark:border-neutral-dark;
+    @apply w-full px-4 py-2 border border-neutral-gray rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-navy focus:border-transparent;
   }
 
   /* Badge Styles */

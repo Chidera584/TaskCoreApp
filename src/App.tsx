@@ -5,9 +5,6 @@ import Dashboard from './pages/Dashboard';
 import Tasks from './pages/Tasks';
 import Notifications from './pages/Notifications';
 import Settings from './pages/Settings';
-import Pomodoro from './pages/Pomodoro';
-import MoodTracker from './pages/MoodTracker';
-import StudyTimeGenerator from './pages/StudyTimeGenerator';
 
 function App() {
   return (
@@ -20,9 +17,6 @@ function App() {
         <Route path="/tasks" element={<Tasks />} />
         <Route path="/notifications" element={<Notifications />} />
         <Route path="/settings" element={<Settings />} />
-        <Route path="/pomodoro" element={<Pomodoro />} />
-        <Route path="/mood" element={<MoodTracker />} />
-        <Route path="/study-time" element={<StudyTimeGenerator />} />
       </Routes>
     </Router>
   );
