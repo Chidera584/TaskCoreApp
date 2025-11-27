@@ -307,4 +307,4 @@ Your TaskCore application is now ready with:
 - ✅ State management setup
 - ✅ Responsive design
 
-**Start the dev server and begin using TaskCore! 🚀**
+**Start the dev server and begin coding! 🚀**
